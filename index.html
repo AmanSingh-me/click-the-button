@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click the Button</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background: #000;
+        color: #fff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .app {
+        padding: 15px;
+        width: 300px;
+        height: 100px;
+        background: #1f7dca;
+      }
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+      button {
+        padding: 5px 10px;
+        font-size: 18px;
+        display: block;
+        margin: 40px auto;
+        margin-bottom: 0;
+        cursor: pointer;
+        border: 0;
+        background: #34d13c;
+      }
+      button:active {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <p>You Have clicked <span>0</span> times</p>
+      <button>Click Me</button>
+    </div>
+    <script>
+      const button = document.getElementsByTagName("button")[0];
+      let spanCount = document.getElementsByTagName("span")[0];
+
+      function increment() {
+        let initialCount = 0;
+        return function () {
+          initialCount++;
+          spanCount.textContent = initialCount;
+        }
+      }
+      let incrementCount = increment();
+
+      button.addEventListener("click", incrementCount);
+    </script>
+  </body>
+</html>
